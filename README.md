@@ -1,4 +1,8 @@
-YourLife
+Your Life Graph generator
 ========
 
-http://www.youtube.com/watch?v=xPPCzryZK44
+You can try it on: http://spitsyn.net/yourlife
+
+![YourLife screenshot](/screenshots/screenshot.png?raw=true "Your Life Graph generator")
+
+Concept from: http://youtube.com/watch?v=xPPCzryZK44
