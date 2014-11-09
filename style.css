@@ -149,6 +149,7 @@ body
     /* No support for these yet, use at own risk */
 
          -o-user-select: none;
+         -webkit-print-color-adjust: exact;
 }
 .title
 {
@@ -226,4 +227,22 @@ body
 {
     background: #f00;
     box-shadow: 0 0 3px #f00;
+}
+
+@media print {
+    #life div.week
+    {
+        background: #fff;
+    }
+    #life div.ended
+    {
+        background: #ccc;
+    }
+    #life div.current
+    {
+        background: #f00;
+    }
+    .print-hidden {
+        display:none;
+    }
 }
