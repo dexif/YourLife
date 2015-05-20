@@ -5,7 +5,7 @@ function redraw(){
 	var life_block = document.querySelector('#life');
 	life_block.innerHTML = '';
 	var now = new Date();
-	var matches = window.location.hash.match(/#(\d{4})\.(\d{2})\.(\d{2})/);
+	var matches = window.location.hash.match(/#(\d{4})\.(\d{1,2})\.(\d{1,2})/);
 	if(matches && matches.length > 0) {
 		console.log(matches);
 		var birth_year = parseInt(matches[1], 10);
