@@ -1,23 +1,36 @@
 'use strict';
-document.addEventListener('DOMContentLoaded', function() {
 
+function redraw(){
+
+	var life_block = document.querySelector('#life');
+	life_block.innerHTML = '';
 	var now = new Date();
+	var matches = window.location.hash.match(/#(\d{4})\.(\d{2})\.(\d{2})/);
+	if(matches && matches.length > 0) {
+		console.log(matches);
+		var birth_year = parseInt(matches[1], 10);
+		var birth_month = parseInt(matches[2], 10);
+		var birth_day = parseInt(matches[3], 10);
+	} else {
+		var birth_year = prompt('What year were you born in?', 1980);
+		var birth_month = prompt('What month(number) were you born in?', 1);
+		var birth_day = prompt('What day were you born in?', 1);
+	}
 
-	var birth_year = prompt('What year were you born in?', 1980);
 	if (birth_year > 1900 && birth_year < now.getFullYear()) {
 	} else {
 		alert('Wrong year!');
 		return;
 	}
 
-	var birth_month = prompt('What month(number) were you born in?', 1);
+
 	if (birth_month > 0 && birth_month < 13) {
 	} else {
 		alert('Wrong month!');
 		return;
 	}
 
-	var birth_day = prompt('What day were you born in?', 1);
+
 	if (birth_day > 0 && birth_day < 32) {
 	} else {
 		alert('Wrong day!');
@@ -28,7 +41,6 @@ document.addEventListener('DOMContentLoaded', function() {
 	var today = Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate());
 	var weeks = (today - birthdate) / (1000 * 60 * 60 * 24 * 7);
 
-	var life_block = document.querySelector('#life');
 	var week_of_life = 0;
 	var div, week, year_number, week_class, title;
 	for (var i = 0; i <= 80; i++) {
@@ -58,4 +70,8 @@ document.addEventListener('DOMContentLoaded', function() {
 		}
 		life_block.appendChild(div);
 	}
+}
+document.addEventListener('DOMContentLoaded', function() {
+	redraw();
+	window.onhashchange = redraw;
 });
